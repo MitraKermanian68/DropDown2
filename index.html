@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div id="dropdown">
+        <div class="dropdown-toggle">
+            <span>Menu</span>
+            <i class="fa-solid fa-caret-down"></i>
+        </div>
+        <ul class="menu">
+            <li class="menu-item"><a href="#">Italian</a></li>
+            <li class="menu-item"><a href="#">Chinese</a></li>
+            <li class="menu-item dropdown"><a href="#" class="submenu-toggle">
+                <span>Healthy Options</span>
+                <i class="fa-solid fa-caret-right"></i>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item"><a href="#">Vegetarian</a></li>
+                    <li class="submenu-item"><a href="#">Vegan</a></li>
+                    <li class="submenu-item"><a href="#">Gluten-free</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="#">Mexican</a></li>
+            <li class="menu-item dropdown"><a href="#" class="submenu-toggle">
+                <span>Specials</span>
+                <i class="fa-solid fa-caret-right"></i>
+                </a>
+                <ul class="submenu">
+                    <li class="submenu-item"><a href="#">Deals of the day</a></li>
+                    <li class="submenu-item"><a href="#">Seasonal offers</a></li>
+                    <li class="submenu-item"><a href="#">Holiday packages</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+
+        dropdownToggle.addEventListener('click', () => {
+            const dropdownMenu = document.querySelector('#dropdown > .menu');
+
+            dropdownMenu.classList.toggle('open');
+            dropdownToggle.classList.toggle('open');
+        });
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle')) {
+                const dropdownMenu = document.querySelector('#dropdown > .menu');
+                
+
+                dropdownMenu.classList.remove('open');
+            }
+        }
+    </script>
+</body>
+</html>
